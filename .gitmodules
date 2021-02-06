@@ -1,0 +1,21 @@
+[submodule "poky/meta-qt5"]
+	path = poky/meta-qt5
+	url = https://github.com/meta-qt5/meta-qt5
+[submodule "poky/meta-raspberrypi"]
+	path = poky/meta-raspberrypi
+	url = git://git.yoctoproject.org/meta-raspberrypi
+[submodule "poky/meta-openembedded"]
+	path = poky/meta-openembedded
+	url = git://git.openembedded.org/meta-openembedded
+[submodule "poky/meta-security"]
+	path = poky/meta-security
+	url = git://git.yoctoproject.org/meta-security.git
+[submodule "poky/meta-jumpnow"]
+	path = poky/meta-jumpnow
+	url = https://github.com/jumpnow/meta-jumpnow
+[submodule "poky/meta-rpi"]
+	path = poky/meta-rpi
+	url = git://github.com/jumpnow/meta-rpi
+[submodule "poky/poky-dunfell"]
+	path = poky/poky-dunfell
+	url = git://git.yoctoproject.org/poky.git
