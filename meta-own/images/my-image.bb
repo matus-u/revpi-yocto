@@ -18,7 +18,7 @@ DISTRO_FEATURES_remove = "ext2"
 MACHINE_FEATURES_remove = "alsa"
 MACHINE_FEATURES_remove = "phone"
 
-DISTRO_FEATURES_add = "ipv4 ipv6"
+DISTRO_FEATURES_append = " ipv4 ipv6"
 
 inherit image
 
@@ -89,7 +89,7 @@ iface eth0 inet dhcp
 EOT
 }
 enable_root_login() {
-echo "DROPBEAR_EXTRA_ARGS=''" > /etc/default/dropbear
+echo "DROPBEAR_EXTRA_ARGS=''" > ${IMAGE_ROOTFS}/etc/default/dropbear
 }
 
 ROOTFS_POSTPROCESS_COMMAND += " \
