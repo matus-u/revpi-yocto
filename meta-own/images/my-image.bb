@@ -18,8 +18,6 @@ DISTRO_FEATURES_remove = "ext2"
 MACHINE_FEATURES_remove = "alsa"
 MACHINE_FEATURES_remove = "phone"
 
-DISTRO_FEATURES_append = " ipv4 ipv6"
-
 inherit image
 
 DEPENDS += "bootfiles"
