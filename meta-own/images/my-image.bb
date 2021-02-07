@@ -86,7 +86,6 @@ echo "DROPBEAR_EXTRA_ARGS=''" > ${IMAGE_ROOTFS}/etc/default/dropbear
 prepare_fast_boot() {
 rm ${IMAGE_ROOTFS}/etc/rcS.d/S01keymap.sh
 rm ${IMAGE_ROOTFS}/etc/rcS.d/S29read-only-rootfs-hook.sh
-rm ${IMAGE_ROOTFS}/etc/rcS.d/S06devpts.sh
 rm ${IMAGE_ROOTFS}/etc/rcS.d/S06checkroot.sh
 rm ${IMAGE_ROOTFS}/etc/rcS.d/S05modutils.sh
 rm ${IMAGE_ROOTFS}/etc/rcS.d/S04udev
