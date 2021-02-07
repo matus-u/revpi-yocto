@@ -67,9 +67,9 @@ IMAGE_INSTALL += " \
 "
 
 change_networking() {
-cat <<EOT >> ${IMAGE_ROOTFS}/etc/network/interfaces
-auto lo
-iface lo inet loopback
+cat <<EOT > ${IMAGE_ROOTFS}/etc/network/interfaces
+#auto lo
+#iface lo inet loopback
 
 auto eth0
 iface eth0 inet dhcp
