@@ -1,6 +1,6 @@
 do_deploy_append() {
 
-    cat <<EOT >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
+cat <<EOT >> ${DEPLOYDIR}/${BOOTFILES_DIR_NAME}/config.txt
 
 ## MY ADDED ## 
 # Disable the rainbow splash screen
@@ -20,7 +20,8 @@ dtoverlay=pi3-disable-wifi
 boot_delay=0
 
 # Overclock the raspberry pi. This voids its warranty. Make sure you have a good power supply.
-# force_turbo=1
+initial_turbo=40
+force_turbo=1
 
 EOT
 }
