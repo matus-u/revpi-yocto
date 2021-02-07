@@ -75,13 +75,48 @@ auto eth0
 iface eth0 inet dhcp
 EOT
 }
+
 enable_root_login() {
 echo "DROPBEAR_EXTRA_ARGS=''" > ${IMAGE_ROOTFS}/etc/default/dropbear
 }
 
+prepare_fast_boot() {
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S01keymap.sh
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S29read-only-rootfs-hook.sh
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S06devpts.sh
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S06checkroot.sh
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S05modutils.sh
+rm ${IMAGE_ROOTFS}/etc/rcS.d/S04udev
+rm ${IMAGE_ROOTFS}/etc/rc2.d/S15mountnfs.sh
+rm ${IMAGE_ROOTFS}/etc/rc2.d/S02dbus-1
+cp ${IMAGE_ROOTFS}/etc/init.d/networking ${IMAGE_ROOTFS}/etc/rcS.d/S04networking
+
+sed -i "s/id:5:initdefault:/id:2:initdefault:/" ${IMAGE_ROOTFS}/etc/inittab
+
+cat <<EOT > ${IMAGE_ROOTFS}/etc/rcS.d/S04x-my-app
+#!/bin/sh
+echo "START APP" > /dev/kmsg
+export QT_QPA_PLATFORM=eglfs
+/usr/bin/qcolorcheck
+EOT
+chmod +x ${IMAGE_ROOTFS}/etc/rcS.d/S04x-my-app
+
+cat <<EOT > ${IMAGE_ROOTFS}/etc/rcS.d/S02sysfs.sh
+#!/bin/sh
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -n -t devtmpfs devtmpfs /dev
+mkdir /tmp/
+mount -t tmpfs tmpfs /tmp
+EOT
+
+}
+
+
 ROOTFS_POSTPROCESS_COMMAND += " \
     change_networking ; \
     enable_root_login ; \
+    prepare_fast_boot ; \
 "
 
 
