@@ -11,15 +11,29 @@ LICENSE_FLAGS_WHITELIST = "commercial"
 
 DISTRO_FEATURES = "ext2 opengl usbhost ${DISTRO_FEATURES_LIBC} ipv4"
 
-#DISTRO_FEATURES_BACKFILL_CONSIDERED += "pulseaudio"
-
 PREFERRED_PROVIDER_jpeg = "libjpeg-turbo"
 PREFERRED_PROVIDER_jpeg-native = "libjpeg-turbo-native"
 
 PREFERRED_PROVIDER_udev = "eudev"
 VIRTUAL-RUNTIME_init_manager = "sysvinit"
+DISTRO_FEATURES_remove = "bluetooth"
+DISTRO_FEATURES_remove = "3g"
+DISTRO_FEATURES_remove = "wayland"
+DISTRO_FEATURES_remove = "x11"
+DISTRO_FEATURES_remove = "nfc"
+DISTRO_FEATURES_remove = "nfs"
+DISTRO_FEATURES_remove = "ext2"
+
+DISTRO_FEATURES_BACKFILL_remove = "pulseaudio"
 
 MACHINE_FEATURES_remove = "apm"
+MACHINE_FEATURES_remove = "alsa"
+MACHINE_FEATURES_remove = "wifi"
+MACHINE_FEATURES_remove = "phone"
+MACHINE_FEATURES_remove = "bluetooth"
+MACHINE_FEATURES_remove = "qemu-usermode"
+MACHINE_FEATURES_remove = "sdio"
+MACHINE_FEATURES_remove = "screen"
 
 IMAGE_FSTYPES = "tar.xz"
 

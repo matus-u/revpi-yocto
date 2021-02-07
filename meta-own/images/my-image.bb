@@ -7,17 +7,6 @@ FEATURE_PACKAGES_ssh-server-openssh = "packagegroup-core-ssh-openssh"
 IMAGE_FEATURES_REPLACES_ssh-server-openssh = "ssh-server-dropbear"
 MACHINE_HWCODECS ??= ""
 
-DISTRO_FEATURES_remove = "bluetooth"
-DISTRO_FEATURES_remove = "3g"
-DISTRO_FEATURES_remove = "opengl"
-DISTRO_FEATURES_remove = "wayland"
-DISTRO_FEATURES_remove = "x11"
-DISTRO_FEATURES_remove = "nfc"
-DISTRO_FEATURES_remove = "nfs"
-DISTRO_FEATURES_remove = "ext2"
-MACHINE_FEATURES_remove = "alsa"
-MACHINE_FEATURES_remove = "phone"
-
 inherit image
 
 DEPENDS += "bootfiles"
