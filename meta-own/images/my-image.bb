@@ -66,19 +66,6 @@ IMAGE_INSTALL += " \
     ${TSLIB} \
 "
 
-change_networking() {
-cat <<EOT > ${IMAGE_ROOTFS}/etc/network/interfaces
-#auto lo
-#iface lo inet loopback
-
-auto eth0
-iface eth0 inet static
-	address 192.168.0.80
-	netmask 255.255.255.0
-	gateway 192.168.0.1
-EOT
-}
-
 enable_root_login() {
 echo "DROPBEAR_EXTRA_ARGS=''" > ${IMAGE_ROOTFS}/etc/default/dropbear
 }
@@ -116,7 +103,6 @@ EOT
 
 
 ROOTFS_POSTPROCESS_COMMAND += " \
-    change_networking ; \
     enable_root_login ; \
     prepare_fast_boot ; \
 "
