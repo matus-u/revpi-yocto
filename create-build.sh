@@ -5,4 +5,4 @@ cp ../meta-own/conf/bblayers.conf.sample conf/bblayers.conf
 sed -i "s|HOME|$PWD/..|" conf/bblayers.conf
 
 export MACHINE=raspberrypi-cm
-export OETMP=raspberrypi-cm=$PWD/tmp
+export OETMP=$PWD/tmp
