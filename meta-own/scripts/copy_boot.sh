@@ -152,16 +152,17 @@ if [ "$?" -ne 0 ]; then
     exit 1
 fi
 
+echo "Copying bootloader files"
+sudo cp ${SRCDIR}/bootfiles/* /media/card
+
+if [ $? -ne 0 ]; then
+    echo "Error copying bootloader files"
+    sudo umount ${DEV}
+    exit 1
+fi
+
 INCLUDE_DTB_TO_KERNEL=1
 if [ $INCLUDE_DTB_TO_KERNEL -eq 0 ]; then
-  echo "Copying bootloader files"
-  sudo cp ${SRCDIR}/bootfiles/* /media/card
-
-  if [ $? -ne 0 ]; then
-      echo "Error copying bootloader files"
-      sudo umount ${DEV}
-      exit 1
-  fi
 
   echo "Creating overlay directory"
   sudo mkdir /media/card/overlays
