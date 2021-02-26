@@ -17,6 +17,6 @@ sudo ./rpiboot  # in usbboot -> check prep step, find correct device
 On another console find correct device and run:
 
 . create-build.sh # For environment
-cd meta-own/scripts/
+cd ../meta-own/scripts/
 ./copy_boot.sh sde # check correct device!
 ./copy_rootfs.sh sde my # check correct device!
