@@ -2518,16 +2518,6 @@ CONFIG_NVMEM_SYSFS=y
 
 # CONFIG_FPGA is not set
 # CONFIG_FSI is not set
-CONFIG_MULTIPLEXER=m
-
-#
-# Multiplexer drivers
-#
-# CONFIG_MUX_ADG792A is not set
-# CONFIG_MUX_GPIO is not set
-# CONFIG_MUX_MMIO is not set
-# end of Multiplexer drivers
-
 CONFIG_PM_OPP=y
 # CONFIG_SIOX is not set
 # CONFIG_SLIMBUS is not set
