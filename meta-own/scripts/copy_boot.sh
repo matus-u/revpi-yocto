@@ -47,14 +47,13 @@ case "${MACHINE}" in
 esac
 
 BOOTLDRFILES="bootcode.bin \
+              bootfiles-20201119.stamp \
               cmdline.txt \
               config.txt \
               fixup_cd.dat \
               fixup.dat \
-              fixup_x.dat \
               start_cd.elf \
-              start.elf \
-              start_x.elf"
+              start.elf"
 
 if [ "x${1}" = "x" ]; then
     echo -e "\nUsage: ${0} <block device>\n"
@@ -154,6 +153,15 @@ fi
 
 echo "Copying bootloader files"
 sudo cp ${SRCDIR}/bootfiles/* /media/card
+
+for f in ${BOOTLDRFILES}; do
+  cp ${SRCDIR}/bootfiles/${f} /media/card
+  if [ $? -ne 0 ]; then
+      echo "Error copying bootloader file ${SRCDIR}/bootfiles/${f}"
+      sudo umount ${DEV}
+      exit 1
+  fi
+done
 
 if [ $? -ne 0 ]; then
     echo "Error copying bootloader files"
