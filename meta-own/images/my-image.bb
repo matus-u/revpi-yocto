@@ -39,6 +39,7 @@ QT_TOOLS = " \
     qtbase \
     qt5-env \
     qtserialport \
+    qtbase-plugins \
 "
 
 FONTS = " \
