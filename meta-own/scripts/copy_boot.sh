@@ -152,7 +152,7 @@ if [ "$?" -ne 0 ]; then
 fi
 
 echo "Copying bootloader files"
-sudo cp ${SRCDIR}/bootfiles/* /media/card
+#sudo cp ${SRCDIR}/bootfiles/* /media/card
 
 for f in ${BOOTLDRFILES}; do
   cp ${SRCDIR}/bootfiles/${f} /media/card
