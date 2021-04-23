@@ -143,13 +143,27 @@ chmod +x ${IMAGE_ROOTFS}/sbin/init
 cat <<EOT > ${IMAGE_ROOTFS}/etc/init.d/S04x-my-app
 #!/bin/sh
 echo "START APP" > /dev/kmsg
-export QT_QPA_PLATFORM=eglfs
-cat /dev/urandom > /dev/fb0
-#/usr/bin/qcolorcheck
+. /etc/profile.d/qt5-env.sh
+tspress &
+sleep 10
+
 EOT
 chmod +x ${IMAGE_ROOTFS}/etc/init.d/S04x-my-app
 
+
+cat <<EOT >> ${IMAGE_ROOTFS}/etc/profile.d/qt5-env.sh
+export TSLIB_TSDEVICE=/dev/input/event0
+export TSLIB_CALIBFILE=/etc/pointercal
+export TSLIB_CONFFILE=/etc/ts.conf
+export QT_QPA_GENERIC_PLUGINS=tslib:/dev/input/event0
+export QT_QPA_EVDEV_TOUCHSCREEN_PARAMETERS=/dev/input/event0
+EOT
+
+echo -n "12823 271 -487156 -137 7668 716376 65536 800 480 0" > ${IMAGE_ROOTFS}/etc/pointercal
+
 }
+
+
 
 
 ROOTFS_POSTPROCESS_COMMAND += " \
