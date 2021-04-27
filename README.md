@@ -18,5 +18,5 @@ On another console find correct device and run:
 
 . create-build.sh display  # or . create-build.sh no-display - based on board env
 cd ../meta-own/scripts/
-./copy_boot.sh sde # check correct device!
-./copy_rootfs.sh sde my # check correct device!
+sudo -E ./copy_boot.sh sde # check correct device! -E handles setting MACHINE/OETMP from user env to root ones
+sudo -E ./copy_rootfs.sh sde my # check correct device! -E handles setting MACHINE/OETMP from user env to root ones

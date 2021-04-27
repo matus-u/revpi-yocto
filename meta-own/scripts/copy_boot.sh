@@ -3,16 +3,9 @@
 KERNEL_IMAGETYPE=zImage
 
 if [ -z "${MACHINE}" ]; then
-    # try to find it
-    if [ -f ../../build/conf/local.conf ]; then
-        MACHINE=$(grep '^MACHINE' ../../build/conf/local.conf | grep -v MACHINE_ | awk '{ print $3 }' | sed 's/"//g')
-    fi
-
-    if [ -z "${MACHINE}" ]; then
-        echo "Environment variable MACHINE not set"
-        echo "Example: export MACHINE=raspberrypi4|raspberrypi3|raspberrypi0-wifi"
-        exit 1
-    fi
+    echo "Environment variable MACHINE not set"
+    echo "Example: export MACHINE=raspberrypi4|raspberrypi3|raspberrypi0-wifi|raspberrypi-cm|raspberrypi-cm-no-display"
+    exit 1
 fi
 
 echo "MACHINE: ${MACHINE}"
