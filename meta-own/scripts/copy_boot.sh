@@ -18,7 +18,7 @@ fi
 echo "MACHINE: ${MACHINE}"
 
 case "${MACHINE}" in
-    raspberrypi-cm)
+    raspberrypi-cm|raspberrypi-cm-no-display)
         DTBS="bcm2708-rpi-cm.dtb"
         ;;
 

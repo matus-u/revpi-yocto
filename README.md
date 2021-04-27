@@ -3,7 +3,7 @@
 For build:
 ```bash
 git submodule update --init --recursive
-. create-build.sh
+. create-build.sh display  # or . create-build.sh no-display - based on board env
 bitbake my-image
 
 
@@ -16,7 +16,7 @@ sudo ./rpiboot  # in usbboot -> check prep step, find correct device
 
 On another console find correct device and run:
 
-. create-build.sh # For environment
+. create-build.sh display  # or . create-build.sh no-display - based on board env
 cd ../meta-own/scripts/
 ./copy_boot.sh sde # check correct device!
 ./copy_rootfs.sh sde my # check correct device!

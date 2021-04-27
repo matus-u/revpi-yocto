@@ -44,7 +44,7 @@ IMAGE_FSTYPES = "tar.xz"
 #MACHINE = "raspberrypi2"
 #MACHINE = "raspberrypi3"
 #MACHINE = "raspberrypi4"
-MACHINE = "raspberrypi-cm"
+MACHINE ?= "raspberrypi-cm"
 #MACHINE = "raspberrypi-cm3"
 TCLIBC = "musl"
 
