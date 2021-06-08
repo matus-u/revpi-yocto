@@ -130,7 +130,7 @@ fi
 kill -USR1 1
 
 sysctl -e -p /etc/sysctl.conf >/dev/null 2>&1
-ifup eth0
+until ifup eth0; do echo "Trying network"; done
 
 /etc/init.d/S04x-my-app
 mount -t sysfs sysfs /sys
