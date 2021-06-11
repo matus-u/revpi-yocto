@@ -14,6 +14,7 @@ DEPENDS += "bootfiles"
 CORE_OS = " \
     packagegroup-core-boot \
     term-prompt \
+    musl-glibc-compat \
 "
 
 
